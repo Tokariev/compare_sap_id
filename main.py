@@ -44,11 +44,10 @@ def run():
         for kaufland_id in kaufland_list:
             if kaufland_id not in sit_list:
                 missing_list.append(kaufland_id)
-                print(kaufland_id)
 
-        print('Kaufland IDs:', len(kaufland_list))
-        print('SIT IDs:', len(sit_list))
-        print('Missing IDs:', len(missing_list))
+        print('Anzahl von Kaufland system ID:', len(kaufland_list))
+        print('Anzahl von SIT System ID:', len(sit_list))
+        print('\nAnzahl von fehlenden System ID bei SIT SAP Logon:', len(missing_list))
 
         name_of_file = 'Missing_IDs_' + str(len(missing_list)) + '.txt'
 
@@ -57,7 +56,7 @@ def run():
                 for missing_id in missing_list:
                     f.write("%s\n" % missing_id)
 
-            print('Die Liste mit fehlende System ID wurde erstellt: ', get_absolut_path(name_of_file))
+            print('\nDie Liste mit fehlende System ID wurde erstellt: ', get_absolut_path(name_of_file))
             f.close()
             input("\n\nPress the enter key to exit.")
         except IOError as e:
